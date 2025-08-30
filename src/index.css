@@ -1,5 +1,23 @@
+@import "./fonts.css";
 @import "tailwindcss";
+@import "./utils.css";
 @plugin "flowbite-react/plugin/tailwindcss";
 @source "../.flowbite-react/class-list.json";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --gradient-from-color: #fcd678;
+  --gradient-via-color: #daaf52;
+  --gradient-to-color: #bd8d30;
+}
+
+@theme {
+  --font-body: OpenSans;
+}
+
+@tailwind base {
+  body {
+    font-family: var(--font-body);
+  }
+}
