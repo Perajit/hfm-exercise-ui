@@ -1,12 +1,16 @@
 import BaseButton from '@/components/_base/BaseButton';
 import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarTheme, NavbarToggle } from 'flowbite-react';
-import type { FC } from 'react';
+import type { FC, HTMLProps } from 'react';
 import LangMenu from './LangMenu';
 
 const loggImgSrc = '/images/logo.svg';
 const downloadAppImgSrc = '/images/download-app.svg';
 
-export const AppHeader: FC = () => {
+export type AppHeaderProps = Omit<HTMLProps<HTMLBaseElement>, 'title'>;
+
+export const AppHeader: FC<AppHeaderProps> = (props) => {
+  const { className, ...otherProps } = props;
+
   const classNameForBaseFontSize = 'text-xs lg:!text-sm';
   const classNameForLargerFontSize = 'text-sm lg:!text-[16px]';
 
@@ -44,7 +48,10 @@ export const AppHeader: FC = () => {
   } as NavbarTheme;
 
   return (
-    <header className="bg-zinc-900 text-neutral-200 sticky top-0 z-50">
+    <header
+      className={`bg-zinc-900 text-neutral-200 sticky top-0 z-50 ${className}`}
+      {...otherProps}
+    >
       <Navbar
         fluid
         theme={outerNavbarTheme}

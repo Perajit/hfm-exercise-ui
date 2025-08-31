@@ -1,13 +1,20 @@
 import SocialLastIcon from '@/components/_icon/SocialLastIcon';
-import type { FC } from 'react';
+import type { FC, HTMLProps } from 'react';
 import { FaFacebook, FaInstagram, FaLinkedinIn, FaTelegram, FaXTwitter, FaYoutube } from 'react-icons/fa6';
 
 const appStoreImgSrc = '/images/appstore.svg';
 const goolgePlayImgSrc = '/images/googleplay.svg';
 
-export const AppFooter: FC = () => {
+export type AppFooterProps = Omit<HTMLProps<HTMLBaseElement>, 'title'>;
+
+export const AppFooter: FC<AppFooterProps> = (props) => {
+  const { className, ...otherProps } = props;
+
   return (
-    <footer className="bg-zinc-900 text-neutral-400 pt-8 pb-10 px-8 flex justify-center">
+    <footer
+      className={`bg-zinc-900 text-neutral-400 pt-8 pb-10 px-8 flex justify-center ${className}`}
+      {...otherProps}
+    >
       <div className="container max-w-[1320px] flex flex-col gap-6 items-start text-start md:flex-row lg:gap-10">
         <div className="flex flex-col gap-2 md:min-w-[300px]">
           <div>
