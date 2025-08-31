@@ -7,7 +7,7 @@ export type BaseTextInputProps = TextInputProps & {
 
 const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((props, ref) => {
   const { errorMessage, className = '', ...otherProps } = props;
-  const baseClassName = '!bg-transparent !border-neutral-400 h-[42px] !text-[16px] leading-none !rounded-md';
+  const baseClassName = '!bg-transparent !border-neutral-400 h-[42px] !text-base !rounded-md';
   const classNameForPlaceholder = 'placeholder:text-neutral-400';
   const classNameForError = errorMessage ? '!border-red-400 focus:!ring-1 focus:!ring-red-500' : '';
 

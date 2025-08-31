@@ -10,7 +10,7 @@ const BaseSection: FC<BaseSectionProps> = (props) => {
   return (
     <section className={`px-8 py-16 md:py-24 lg:py-30 ${className}`} {...otherProps}>
       <div className="container max-w-[1320px] mx-auto">
-        <h1 className="font-[SofiaSansCondensed] leading-none text-[50px] text-center mb-12 lg:mb-22">
+        <h1 className="text-black font-[SofiaSansCondensed] leading-none text-heading-1 text-center mb-12 lg:mb-22">
           {title}
         </h1>
         {children}

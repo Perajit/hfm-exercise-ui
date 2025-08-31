@@ -10,7 +10,7 @@ const HeroSection: FC<RegisterSectionProps> = (props) => {
   const titleLineClassName = 'font-bold';
 
   const title = (
-    <span className="inline-flex flex-col text-[70px] leading-none lg:-mb-12">
+    <span className="inline-flex flex-col text-title leading-none lg:-mb-12">
       <span className={`${titleLineClassName} bg-gradient bg-clip-text text-transparent`}>LOREM IPSUM DOLOR</span>
       <span className={`${titleLineClassName} text-white`}>SIT AMET TOSIK</span>
     </span>

@@ -40,12 +40,12 @@ const TradingGainSection: FC<TradingGainSectionProps> = (props) => {
         <TradingGainTable list={nonWinnerList} />
       </div>
       <div className="text-center">
-        <BaseButton color="green" className="w-[307px] h-[54px] mx-auto">
+        <BaseButton color="green" className="w-[307px] mx-auto">
           JOIN NOW
         </BaseButton>
-        <small className="block text-[#a8a8a8] mt-2">
+        <div className="text-xs text-muted mt-2">
           Terms and Conditions apply
-        </small>
+        </div>
       </div>
     </BaseSection>
   );

@@ -12,7 +12,7 @@ export const AppFooter: FC<AppFooterProps> = (props) => {
 
   return (
     <footer
-      className={`bg-zinc-900 text-neutral-400 pt-8 pb-10 px-8 flex justify-center ${className}`}
+      className={`bg-zinc-900 text-dark-base pt-8 pb-10 px-8 flex justify-center ${className}`}
       {...otherProps}
     >
       <div className="container max-w-[1320px] flex flex-col gap-6 items-start text-start md:flex-row lg:gap-10">

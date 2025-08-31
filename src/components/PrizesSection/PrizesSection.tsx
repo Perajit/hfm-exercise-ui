@@ -34,9 +34,14 @@ const PrizesSection: FC<PrizesSectionProps> = (props) => {
     >
       <div role="list" className="grid grid-cols-1 md:grid-cols-3 gap-6 mx-auto mb-12 lg:mb-24">
         {prizeList.map((prize, index) => (
-          <BaseCard key={prize.id} gray role="listitem" className="flex flex-col items-center gap-4 p-12 text-center">
+          <BaseCard
+            key={prize.id}
+            gray
+            role="listitem"
+            className="flex flex-col items-center gap-4 p-12 text-center text-black"
+          >
             <img src={medalImgSrcs[index]} className="w-[100px]'" />
-            <div className="text-[50px] font-bold">
+            <div className="text-heading-1 font-bold">
               ${prize.amount}
             </div>
             <div className="uppercase mt-4">
@@ -46,12 +51,12 @@ const PrizesSection: FC<PrizesSectionProps> = (props) => {
         ))}
       </div>
       <div className="text-center -mb-12">
-        <BaseButton color="green" className="w-[307px] h-[54px] mx-auto">
+        <BaseButton color="green" className="w-[307px] mx-auto">
           JOIN NOW
         </BaseButton>
-        <small className="block text-[#a8a8a8] mt-2">
+        <div className="text-xs text-muted mt-2">
           Terms and Conditions apply
-        </small>
+        </div>
       </div>
     </BaseSection>
   );

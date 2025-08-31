@@ -23,7 +23,7 @@ const BaseAlert: FC<BaseAlertProps> = (props) => {
       color={color}
       theme={{
         base: 'text-sm',
-        wrapper: '!text-[16px] font-bold',
+        wrapper: '!text-base font-bold',
         closeButton: {
           base: 'cursor-pointer self-baseline',
         },

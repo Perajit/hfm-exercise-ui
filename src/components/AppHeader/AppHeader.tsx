@@ -11,30 +11,30 @@ export type AppHeaderProps = Omit<HTMLProps<HTMLBaseElement>, 'title'>;
 export const AppHeader: FC<AppHeaderProps> = (props) => {
   const { className, ...otherProps } = props;
 
-  const classNameForBaseFontSize = 'text-xs lg:!text-sm';
-  const classNameForLargerFontSize = 'text-sm lg:!text-[16px]';
-
-  const logoTextClassName = 'text-[10px] hidden lg:block mb-3';
+  const logoTextClassName = 'text-tiny hidden lg:block mb-3';
   const logoClassName = 'h-[40px] md:h-auto';
 
   const navLinkClassName =
     'hover:!bg-transparent font-normal '
     + '!border-0 focus-visible:!outline-solid focus-visible:!outline-neutral-200 !py-1 !md:mx-0 '
-    + '!text-[#eeeeee] hover:!text-neutral-400';
+    + '!text-dark-link hover:!text-neutral-400';
 
-  const buttonClassName = 'border-1 rounded-sm text-md font-normal !h-[35px] !rounded-sm text-[16px]';
+  const buttonClassName = 'border-1 rounded-sm text-md font-normal !rounded-sm';
   const downloadAppButtonClassName =
-    '!border-neutral-600 !bg-transparent hover:!bg-white hover:text-neutral-700 gap-2 px-2 py-0 !h-[29px] '
-    + `${buttonClassName} ${classNameForBaseFontSize}`;
-  const loginButtonClassName = `!border-red-700 !bg-transparent hover:!bg-red-700 px-6.5 ${buttonClassName}`;
-  const registerButtonClassName = `border-transparent px-6.5 ${buttonClassName}`;
+    '!border-neutral-600 !bg-transparent hover:!bg-white hover:text-neutral-700 gap-2 '
+    + buttonClassName;
+  const loginButtonClassName = `!border-red-700 !bg-transparent hover:!bg-red-700 ${buttonClassName}`;
+  const registerButtonClassName = `border-transparent ${buttonClassName}`;
+
+  const classNameForBaseFontSize = 'text-sm lg:!text-base';
+  const classNameForSmFontSize = 'text-xs lg:!text-sm';
 
   const outerNavbarTheme = {
     collapse: {
       list: 'items-center',
     },
     link: {
-      base: `!text-sm lg:!text-[16px] -mr-1 ${navLinkClassName} ${classNameForLargerFontSize}`,
+      base: `-mr-1 ${navLinkClassName} ${classNameForBaseFontSize}`,
     },
   } as NavbarTheme;
 
@@ -43,9 +43,11 @@ export const AppHeader: FC<AppHeaderProps> = (props) => {
       list: 'items-center',
     },
     link: {
-      base: `${navLinkClassName} ${classNameForBaseFontSize}`,
+      base: `${navLinkClassName} ${classNameForSmFontSize}`,
     },
   } as NavbarTheme;
+
+  const innerNavItemSeparator = <div className="w-px h-4 bg-neutral-700 !-ml-4 !mr-4 my-auto" />;
 
   return (
     <header
@@ -65,7 +67,7 @@ export const AppHeader: FC<AppHeaderProps> = (props) => {
           >
             <NavbarCollapse>
               <NavbarLink href="#" className="flex items-center -mr-1">
-                <BaseButton className={downloadAppButtonClassName}>
+                <BaseButton size="xs" className={downloadAppButtonClassName}>
                   <img src={downloadAppImgSrc} alt="Download App" className="h-3 lg:h-3.5" />
                   Download App
                 </BaseButton>
@@ -73,11 +75,11 @@ export const AppHeader: FC<AppHeaderProps> = (props) => {
               <NavbarLink href="#">
                 Contact us
               </NavbarLink>
-              <div className="w-px h-4 bg-neutral-700 !-ml-4 !mr-4 my-auto" />
+              {innerNavItemSeparator}
               <NavbarLink href="#">
                 Partner with us
               </NavbarLink>
-              <div className="w-px h-4 bg-neutral-700 !-ml-4 !mr-4 my-auto" />
+              {innerNavItemSeparator}
               <LangMenu />
             </NavbarCollapse>
           </Navbar>
@@ -93,7 +95,7 @@ export const AppHeader: FC<AppHeaderProps> = (props) => {
           </div>
           <NavbarCollapse className="grow self-end md:justify-end md:justify-between md:gap-0 mt-2 md:mt-6">
             <div className="grow flex flex-col md:flex-row gap-4 lg:gap-10">
-              <NavbarLink href="#" className=" !text-sm lg:!text-[16px]">
+              <NavbarLink href="#">
                 Markets
               </NavbarLink>
               <NavbarLink href="#">
@@ -110,8 +112,12 @@ export const AppHeader: FC<AppHeaderProps> = (props) => {
               </NavbarLink>
             </div>
             <div className="flex gap-4 px-2 md:px-0 py-4 md:py-0 md:self-end">
-              <BaseButton className={loginButtonClassName}>Login</BaseButton>
-              <BaseButton color="green" className={registerButtonClassName}>Register</BaseButton>
+              <BaseButton size="sm" className={loginButtonClassName}>
+                Login
+              </BaseButton>
+              <BaseButton size="sm" color="green" className={registerButtonClassName}>
+                Register
+              </BaseButton>
             </div>
           </NavbarCollapse>
         </div>

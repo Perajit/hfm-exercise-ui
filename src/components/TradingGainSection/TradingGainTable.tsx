@@ -9,11 +9,10 @@ const TradingGainTable: FC<TradingGainTableProps> = (props) => {
   const { list } = props;
   const tableCellClassName = 'px-4 py-3.5 border-b border-neutral-200';
   const tableHeadCellClassName = `${tableCellClassName} text-left text-red-700`;
-  const tableBodyCellClassName = `${tableCellClassName} text-[#161616]`;
 
   return (
     <div className="flex-1">
-      <h2 className="font-bold text-[25px] mb-8">
+      <h2 className="text-black text-heading-2 font-bold mb-8">
         ALIQUAM LOREM ANT
       </h2>
       <table className="w-full">
@@ -26,13 +25,13 @@ const TradingGainTable: FC<TradingGainTableProps> = (props) => {
         <tbody>
           {list.map((tradingGain) => (
             <tr key={tradingGain.id}>
-              <td className={`${tableBodyCellClassName} w-full`}>{tradingGain.traderName}</td>
-              <td className={`${tableBodyCellClassName} font-bold`}>{tradingGain.percentGain}%</td>
+              <td className={`${tableCellClassName} w-full`}>{tradingGain.traderName}</td>
+              <td className={`${tableCellClassName} font-bold`}>{tradingGain.percentGain}%</td>
             </tr>
           ))}
         </tbody>
       </table>
-      <div className="text-xs text-neutral-400 mt-6">
+      <div className="text-xs text-muted mt-6">
         Nam quam nunc, blandit vel, luctus pulvinar
       </div>
     </div>

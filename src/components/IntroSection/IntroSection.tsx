@@ -15,9 +15,9 @@ const IntroSection: FC<IntroSectionProps> = (props) => {
   const colClassName = 'max-w-[500px] md:max-w-[300px] lg:max-w-[200px] mx-auto mb-10 md:px-6 lg:px-0 lg:-mt-4 lg:pb-40 '
     + 'flex flex-col lg:mb-0 gap-12 lg:gap-12 lg:justify-between md:translate-x-0 '
     + 'text-center md:text-start';
-  const textClassName = 'lg:text-[16px] text-[#161616]';
   const appClassName = 'lg:shrink-0 flex items-end mx-auto -translate-x-3';
   const iconClassName = 'h-[60px] md:h-[80px] lg:h-[100px] mx-auto md:mx-0 mb-4';
+  const textClassName = 'lg:text-base';
 
   const title = 'QUISQUE RUTRUM';
 

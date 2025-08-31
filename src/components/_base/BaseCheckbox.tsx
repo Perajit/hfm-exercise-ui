@@ -21,13 +21,15 @@ const BaseCheckbox = forwardRef<HTMLInputElement, BaseCheckboxProps>((props, ref
           {...otherProps}
         />
         {label ? (
-          <Label htmlFor={id} className="cursor-pointer text-xs text-[#a8a8a8]">
+          <Label htmlFor={id} className="cursor-pointer text-xs text-muted">
             {label}
           </Label>
         ) : null}
       </div>
       {errorMessage ? (
-        <div className="text-red-400 text-xs mt-1">{errorMessage}</div>
+        <div className="text-red-400 text-xs mt-1">
+          {errorMessage}
+        </div>
       ) : null}
     </div>
   );

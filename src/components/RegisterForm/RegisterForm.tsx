@@ -258,7 +258,7 @@ const RegisterForm: FC<RegisterFormProps> = (props) => {
           data-testid="submit-button"
           type="submit"
           color="green"
-          className="w-[307px] h-[54px] mx-auto gap-4"
+          className="w-[307px] mx-auto !rounded-smd gap-4"
           disabled={isPending}
         >
           {isPending ? (
