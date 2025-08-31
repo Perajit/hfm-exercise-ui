@@ -8,6 +8,7 @@
     "baseUrl": "./",
     "paths": {
       "@/*": ["src/*"],
+      "@test/*": ["./test/*"],
     },
     "target": "es2020",
     "types": ["vite/client", "node"]
