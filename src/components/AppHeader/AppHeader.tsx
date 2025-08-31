@@ -87,7 +87,8 @@ export const AppHeader: FC<AppHeaderProps> = (props) => {
             </small>
             <img src={loggImgSrc} alt="HFM" className={logoClassName} />
           </NavbarBrand>
-          <div className="grow flex md:hidden justify-end items-end">
+          <div className="grow flex md:hidden justify-end items-center gap-4">
+            <LangMenu className="md:hidden" />
             <NavbarToggle className="cursor-pointer hover:!bg-transparent" />
           </div>
           <NavbarCollapse className="grow self-end md:justify-end md:justify-between md:gap-0 mt-2 md:mt-6">

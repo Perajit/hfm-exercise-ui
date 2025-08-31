@@ -38,8 +38,12 @@ const BaseModalTrigger: FC<BaseModalTriggerProps> = (props) => {
   return (
     <>
       {trigger}
-      <Modal show={modalShown} className={modalClassName} onClose={closeModal}>
-        <ModalHeader>
+      <Modal
+        className={modalClassName}
+        show={modalShown}
+        onClose={closeModal}
+      >
+        <ModalHeader className="border-neutral-200">
           {modalHeader}
         </ModalHeader>
         <ModalBody>

@@ -18,7 +18,7 @@ const BaseDropdown = forwardRef<HTMLButtonElement, BaseDropdownProps>((props, re
   const { options, placeholder, errorMessage, className = '', onChange, ...otherProps } = props;
   const [value, setValue] = useState('');
   const baseClassName = 'w-full justify-between h-[42px] px-2.5 !text-[16px] leading-none '
-    + 'bg-transparent hover:!bg-transparent text-gray-900 '
+    + 'bg-transparent hover:!bg-transparent text-neutral-900 '
     + 'border border-neutral-400 ';
   const classNameForPlaceholder = !value ? 'text-neutral-400' : '';
   const classNameForError = errorMessage ? '!border-red-400 focus:!ring-1 focus:!ring-red-500' : '';

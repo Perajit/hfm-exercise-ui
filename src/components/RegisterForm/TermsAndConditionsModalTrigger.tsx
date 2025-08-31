@@ -19,8 +19,48 @@ const TermsAndConditionsModalTrigger: FC<TermsAndConditionsModalTriggerProps> = 
     <div className="space-y-6">
       <p>
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
       </p>
       <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
         Lorem ipsum dolor sit amet, consectetuer adipiscing elit
       </p>
     </div>

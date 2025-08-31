@@ -49,7 +49,7 @@ const MonthyTradingGainWinners: FC<MonthyTradingGainWinnersProps> = (props) => {
               </h3>
               <div className="my-5">
                 <div className="">{tradingGain.traderName}</div>
-                <div className="text-gray-400">{tradingGain.traderCode}</div>
+                <div className="text-neutral-400">{tradingGain.traderCode}</div>
               </div>
               <div className="font-bold">
                 Total gain of <span className="text-red-700">{tradingGain.percentGain}%</span>

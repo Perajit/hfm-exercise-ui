@@ -7,7 +7,7 @@ type TradingGainTableProps = {
 
 const TradingGainTable: FC<TradingGainTableProps> = (props) => {
   const { list } = props;
-  const tableCellClassName = 'px-4 py-3.5 border-b border-gray-200';
+  const tableCellClassName = 'px-4 py-3.5 border-b border-neutral-200';
   const tableHeadCellClassName = `${tableCellClassName} text-left text-red-700`;
   const tableBodyCellClassName = `${tableCellClassName} text-[#161616]`;
 

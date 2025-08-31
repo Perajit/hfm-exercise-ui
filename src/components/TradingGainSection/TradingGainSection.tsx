@@ -27,10 +27,6 @@ const nonWinnerList: TradingGain[] = [
 export type TradingGainSectionProps = Omit<HTMLProps<HTMLBaseElement>, 'title'>;
 
 const TradingGainSection: FC<TradingGainSectionProps> = (props) => {
-  const tableCellClassName = 'px-4 py-3.5 border-b border-gray-200';
-  const tableHeadCellClassName = `${tableCellClassName} text-left text-red-700`;
-  const tableBodyCellClassName = `${tableCellClassName} text-[#161616]`;
-
   const title = 'SED FRINGILLA MAURIS SI';
 
   return (
@@ -39,33 +35,9 @@ const TradingGainSection: FC<TradingGainSectionProps> = (props) => {
       title={title}
       {...props}
     >
-      <div className="flex flex-col lg:flex-row flex-wrap justify-between gap-16 mb-12 lg:mb-24">
+      <div className="flex flex-col lg:flex-row flex-wrap justify-between gap-16 mb-12 lg:mb-20">
         <MonthyTradingGainWinners list={winnerList} />
         <TradingGainTable list={nonWinnerList} />
-        <div className="flex-1">
-          <h2 className="font-bold text-[25px] mb-8">
-            ALIQUAM LOREM ANT
-          </h2>
-          <table className="w-full">
-            <thead>
-              <tr>
-                <th className={tableHeadCellClassName}>NAME</th>
-                <th className={tableHeadCellClassName}>GAIN</th>
-              </tr>
-            </thead>
-            <tbody>
-              {nonWinnerList.map((trader) => (
-                <tr key={trader.id}>
-                  <td className={`${tableBodyCellClassName} w-full`}>{trader.traderName}</td>
-                  <td className={`${tableBodyCellClassName} font-bold`}>{trader.percentGain}%</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-          <div className="text-xs text-neutral-400 mt-6">
-            Nam quam nunc, blandit vel, luctus pulvinar
-          </div>
-        </div>
       </div>
       <div className="text-center">
         <BaseButton color="green" className="w-[307px] h-[54px] mx-auto">

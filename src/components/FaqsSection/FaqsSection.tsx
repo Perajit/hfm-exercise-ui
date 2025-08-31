@@ -38,10 +38,22 @@ const FaqsSection: FC<FaqsSectionProps> = (props) => {
       {...props}
     >
       <Accordion className="border-0">
-        {faqList.map((faq) => (
+        {faqList.map((faq, index) => (
           <AccordionPanel key={faq.key}>
-            <AccordionTitle className="text-xl font-semibold">{faq.question}</AccordionTitle>
-            <AccordionContent className="">{faq.answer}</AccordionContent>
+            <AccordionTitle
+              className={
+                `text-xl font-semibold border-y border-neutral-200 px-16 py-5 text-black ${
+                  index === 0 ? 'border-t-transparent' : ''
+                } ${
+                  index === faqList.length - 1 ? 'border-b-[3px]' : ''
+                }`
+              }
+            >
+              {faq.question}
+            </AccordionTitle>
+            <AccordionContent className="px-16 py-5.5 border-t-[2px] border-t-neutral-400">
+              {faq.answer}
+            </AccordionContent>
           </AccordionPanel>
         ))}
       </Accordion>
