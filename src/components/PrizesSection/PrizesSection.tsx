@@ -1,6 +1,6 @@
-import BaseButton from '@/components/_base/BaseButton';
-import BaseCard from '@/components/_base/BaseCard';
-import BaseSection from '@/components/_base/BaseSection';
+import BaseButton from '@/components/_base/BaseButton/BaseButton';
+import BaseCard from '@/components/_base/BaseCard/BaseCard';
+import BaseSection from '@/components/_base/BaseSection/BaseSection';
 import { FC, HTMLProps } from 'react';
 
 const medalImgSrcs = [

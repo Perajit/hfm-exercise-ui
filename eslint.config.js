@@ -37,5 +37,5 @@ export default tseslint.config({ ignores: ["dist"] }, [
     rules: {
       '@typescript-eslint/triple-slash-reference': 'off',
     },
-  }
+  },
 ], storybook.configs["flat/recommended"]);

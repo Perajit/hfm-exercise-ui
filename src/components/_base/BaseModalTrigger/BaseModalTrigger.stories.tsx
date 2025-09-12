@@ -1,6 +1,6 @@
+import BaseButton from '@/components/_base/BaseButton/BaseButton';
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
-import BaseButton from './BaseButton';
 import BaseModalTrigger from './BaseModalTrigger';
 
 const meta = {

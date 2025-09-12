@@ -1,4 +1,4 @@
-import BaseButton from '@/components/_base/BaseButton';
+import BaseButton from '@/components/_base/BaseButton/BaseButton';
 import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarTheme, NavbarToggle } from 'flowbite-react';
 import type { FC, HTMLProps } from 'react';
 import LangMenu from './LangMenu';

@@ -1,5 +1,5 @@
-import BaseButton from '@/components/_base/BaseButton';
-import BaseModalTrigger, { BaseModalTriggerProps } from '@/components/_base/BaseModalTrigger';
+import BaseButton from '@/components/_base/BaseButton/BaseButton';
+import BaseModalTrigger, { BaseModalTriggerProps } from '@/components/_base/BaseModalTrigger/BaseModalTrigger';
 import { FC, useCallback } from 'react';
 
 export type TermsAndConditionsModalTriggerProps = {

@@ -1,8 +1,8 @@
-import BaseAlert from '@/components/_base/BaseAlert';
-import BaseButton from '@/components/_base/BaseButton';
-import BaseCheckbox from '@/components/_base/BaseCheckbox';
-import BaseDropdown from '@/components/_base/BaseDropdown';
-import BaseTextInput from '@/components/_base/BaseTextInput';
+import BaseAlert from '@/components/_base/BaseAlert/BaseAlert';
+import BaseButton from '@/components/_base/BaseButton/BaseButton';
+import BaseCheckbox from '@/components/_base/BaseCheckbox/BaseCheckbox';
+import BaseDropdown from '@/components/_base/BaseDropdown/BaseDropdown';
+import BaseTextInput from '@/components/_base/BaseTextInput/BaseTextInput';
 import { countries, countrySelectionOptions } from '@/constants/countries';
 import { experienceSelectionOptions } from '@/constants/experiences';
 import { useRegisterAccountMutation } from '@/hooks/useRegisterAccountMutation';

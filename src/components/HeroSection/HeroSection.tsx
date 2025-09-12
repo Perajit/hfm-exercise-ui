@@ -1,5 +1,5 @@
-import BaseCard from '@/components/_base/BaseCard';
-import BaseSection from '@/components/_base/BaseSection';
+import BaseCard from '@/components/_base/BaseCard/BaseCard';
+import BaseSection from '@/components/_base/BaseSection/BaseSection';
 import RegisterForm from '@/components/RegisterForm/RegisterForm';
 import { FC, HTMLProps } from 'react';
 

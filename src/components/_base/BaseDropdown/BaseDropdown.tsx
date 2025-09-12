@@ -1,6 +1,6 @@
+import BaseButton from '@/components/_base/BaseButton/BaseButton';
 import { ChevronDownIcon, Dropdown, DropdownItem, DropdownProps } from 'flowbite-react';
 import { forwardRef, useMemo, useState } from 'react';
-import BaseButton from './BaseButton';
 
 export type BaseDropdownOption = {
   value: string;

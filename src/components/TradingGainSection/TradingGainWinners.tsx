@@ -1,4 +1,4 @@
-import BaseCard from '@/components/_base/BaseCard';
+import BaseCard from '@/components/_base/BaseCard/BaseCard';
 import { TradingGain } from '@/types/trading.model';
 import { FC } from 'react';
 

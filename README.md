@@ -26,6 +26,7 @@ npm run test
 - Only the logic in the registration form has been implemented.
 - Localization is NOT included.
 - Unit-testing is included.
+- Storybook is included.
 - Data such as dropdown options, list items, and table entries are declared as constants.
 - The meaning of “Experience” was unclear, so dummy values are used in the list.
 - Phone code is only displayed in UI but excluded from the request payload. (Better to leave let the server side lookup value from country code.)

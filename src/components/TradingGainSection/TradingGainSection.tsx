@@ -1,5 +1,5 @@
-import BaseButton from '@/components/_base/BaseButton';
-import BaseSection from '@/components/_base/BaseSection';
+import BaseButton from '@/components/_base/BaseButton/BaseButton';
+import BaseSection from '@/components/_base/BaseSection/BaseSection';
 import { TradingGain } from '@/types/trading.model';
 import { FC, HTMLProps } from 'react';
 import TradingGainTable from './TradingGainTable';

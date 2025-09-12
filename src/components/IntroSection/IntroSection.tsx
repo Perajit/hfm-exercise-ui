@@ -1,4 +1,4 @@
-import BaseSection from '@/components/_base/BaseSection';
+import BaseSection from '@/components/_base/BaseSection/BaseSection';
 import { FC, HTMLProps } from 'react';
 
 const intro1ImgSrc = '/images/intro-1.svg';

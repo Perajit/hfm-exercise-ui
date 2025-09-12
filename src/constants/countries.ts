@@ -1,4 +1,4 @@
-import { BaseDropdownOption } from '@/components/_base/BaseDropdown';
+import { BaseDropdownOption } from '@/components/_base/BaseDropdown/BaseDropdown';
 
 type Country = {
   name: string;
