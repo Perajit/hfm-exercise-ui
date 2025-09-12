@@ -36,7 +36,7 @@ const PrizesSection: FC<PrizesSectionProps> = (props) => {
         {prizeList.map((prize, index) => (
           <BaseCard
             key={prize.id}
-            gray
+            color="gray"
             role="listitem"
             className="flex flex-col items-center gap-4 p-12 text-center text-black"
           >
@@ -51,7 +51,7 @@ const PrizesSection: FC<PrizesSectionProps> = (props) => {
         ))}
       </div>
       <div className="text-center -mb-12">
-        <BaseButton color="green" className="w-[307px] mx-auto">
+        <BaseButton color="green" size="lg" className="w-[307px] mx-auto">
           JOIN NOW
         </BaseButton>
         <div className="text-xs text-muted mt-2">

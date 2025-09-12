@@ -243,9 +243,9 @@ const RegisterForm: FC<RegisterFormProps> = (props) => {
           id="erms-and-conditions-chk"
           data-testid="erms-and-conditions-chk"
           label={(
-            <>
+            <span className="text-xs text-muted">
               I have read and accepted the <PrivacyPolicyModalTrigger /> and <TermsAndConditionsModalTrigger />
-            </>
+            </span>
           )}
           className="md:col-span-2 pt-2"
           {...register('conditionsAccepted', registerFormValidations.conditionsAccepted)}
@@ -258,6 +258,7 @@ const RegisterForm: FC<RegisterFormProps> = (props) => {
           data-testid="submit-button"
           type="submit"
           color="green"
+          size="lg"
           className="w-[307px] mx-auto !rounded-smd gap-4"
           disabled={isPending}
         >

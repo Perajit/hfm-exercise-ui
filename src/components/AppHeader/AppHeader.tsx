@@ -19,12 +19,12 @@ export const AppHeader: FC<AppHeaderProps> = (props) => {
     + '!border-0 focus-visible:!outline-solid focus-visible:!outline-neutral-200 !py-1 !md:mx-0 '
     + '!text-dark-link hover:!text-neutral-400';
 
-  const buttonClassName = 'border-1 rounded-sm text-md font-normal !rounded-sm';
+  const buttonClassName = 'border-1 rounded-sm text-md font-normal';
   const downloadAppButtonClassName =
     '!border-neutral-600 !bg-transparent hover:!bg-white hover:text-neutral-700 gap-2 '
     + buttonClassName;
-  const loginButtonClassName = `!border-red-700 !bg-transparent hover:!bg-red-700 ${buttonClassName}`;
-  const registerButtonClassName = `border-transparent ${buttonClassName}`;
+  const loginButtonClassName = `!border-red-700 !bg-transparent hover:!bg-red-700 lg:!text-base ${buttonClassName}`;
+  const registerButtonClassName = `border-transparent lg:!text-base ${buttonClassName}`;
 
   const classNameForBaseFontSize = 'text-sm lg:!text-base';
   const classNameForSmFontSize = 'text-xs lg:!text-sm';
@@ -67,7 +67,7 @@ export const AppHeader: FC<AppHeaderProps> = (props) => {
           >
             <NavbarCollapse>
               <NavbarLink href="#" className="flex items-center -mr-1">
-                <BaseButton size="xs" className={downloadAppButtonClassName}>
+                <BaseButton color="" size="sm" className={downloadAppButtonClassName}>
                   <img src={downloadAppImgSrc} alt="Download App" className="h-3 lg:h-3.5" />
                   Download App
                 </BaseButton>
@@ -112,10 +112,10 @@ export const AppHeader: FC<AppHeaderProps> = (props) => {
               </NavbarLink>
             </div>
             <div className="flex gap-4 px-2 md:px-0 py-4 md:py-0 md:self-end">
-              <BaseButton size="sm" className={loginButtonClassName}>
+              <BaseButton size="md" className={loginButtonClassName}>
                 Login
               </BaseButton>
-              <BaseButton size="sm" color="green" className={registerButtonClassName}>
+              <BaseButton size="md" color="green" className={registerButtonClassName}>
                 Register
               </BaseButton>
             </div>

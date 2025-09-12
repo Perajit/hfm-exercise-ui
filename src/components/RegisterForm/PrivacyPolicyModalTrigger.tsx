@@ -11,7 +11,7 @@ export type PrivacyPolicyModalTriggerProps = {
 const PrivacyPolicyModalTrigger: FC<PrivacyPolicyModalTriggerProps> = (props) => {
   const { renderTrigger, ...otherProps } = props;
 
-  const renderHeader: BaseModalTriggerProps['renderModalHeader'] = useCallback(() => (
+  const renderHeader: NonNullable<BaseModalTriggerProps['renderModalHeader']> = useCallback(() => (
     <>Privacy Policy</>
   ), []);
 
@@ -64,7 +64,7 @@ const PrivacyPolicyModalTrigger: FC<PrivacyPolicyModalTriggerProps> = (props) =>
     </div>
   ), []);
 
-  const renderFooter: BaseModalTriggerProps['renderModalFooter'] = useCallback(({ closeModal }) => (
+  const renderFooter: NonNullable<BaseModalTriggerProps['renderModalFooter']> = useCallback(({ closeModal }) => (
     <BaseButton onClick={closeModal}>
       Close
     </BaseButton>
@@ -82,6 +82,7 @@ const PrivacyPolicyModalTrigger: FC<PrivacyPolicyModalTriggerProps> = (props) =>
       renderModalHeader={renderHeader}
       renderModalBody={renderBody}
       renderModalFooter={renderFooter}
+      modalDismissible
       {...otherProps}
     />
   );

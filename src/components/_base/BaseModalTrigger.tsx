@@ -7,17 +7,18 @@ export type BaseModalTriggerContext = {
 };
 
 export type BaseModalTriggerProps = {
-  renderTrigger: (context: BaseModalTriggerContext) => ReactElement;
-  renderModalHeader: (context: BaseModalTriggerContext) => ReactNode;
-  renderModalBody: (context: BaseModalTriggerContext) => ReactNode;
-  renderModalFooter: (context: BaseModalTriggerContext) => ReactNode;
+  modalDismissible?: boolean;
+  renderTrigger: (ctx: BaseModalTriggerContext) => ReactElement;
+  renderModalHeader?: (ctx: BaseModalTriggerContext) => ReactNode;
+  renderModalBody: (ctx: BaseModalTriggerContext) => ReactNode;
+  renderModalFooter?: (ctx: BaseModalTriggerContext) => ReactNode;
   modalClassName?: string;
   onOpenModal?: () => void;
   onCloseModal?: () => void;
 };
 
 const BaseModalTrigger: FC<BaseModalTriggerProps> = (props) => {
-  const { renderTrigger, renderModalHeader, renderModalBody, renderModalFooter, modalClassName, onOpenModal, onCloseModal } = props;
+  const { modalDismissible, renderTrigger, renderModalHeader, renderModalBody, renderModalFooter, modalClassName, onOpenModal, onCloseModal } = props;
   const [modalShown, setModalShown] = useState(false);
 
   const openModal = () => {
@@ -31,27 +32,34 @@ const BaseModalTrigger: FC<BaseModalTriggerProps> = (props) => {
   };
 
   const trigger = renderTrigger({ openModal, closeModal });
-  const modalHeader = renderModalHeader({ openModal, closeModal });
-  const modalBody = renderModalBody({ openModal, closeModal });
-  const modalFooter = renderModalFooter({ openModal, closeModal });
+  const modalHeader = renderModalHeader?.({ openModal, closeModal });
+  const modalBody = renderModalBody?.({ openModal, closeModal });
+  const modalFooter = renderModalFooter?.({ openModal, closeModal });
 
   return (
     <>
       {trigger}
       <Modal
         className={modalClassName}
+        dismissible={modalDismissible}
         show={modalShown}
         onClose={closeModal}
       >
-        <ModalHeader className="border-neutral-200">
-          {modalHeader}
-        </ModalHeader>
-        <ModalBody>
-          {modalBody}
-        </ModalBody>
-        <ModalFooter>
-          {modalFooter}
-        </ModalFooter>
+        {modalHeader ? (
+          <ModalHeader className="border-neutral-200">
+            {modalHeader}
+          </ModalHeader>
+        ) : null}
+        {modalBody ? (
+          <ModalBody>
+            {modalBody}
+          </ModalBody>
+        ) : null}
+        {modalFooter ? (
+          <ModalFooter>
+            {modalFooter}
+          </ModalFooter>
+        ) : null}
       </Modal>
     </>
   );

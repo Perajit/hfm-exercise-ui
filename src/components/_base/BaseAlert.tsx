@@ -10,7 +10,7 @@ const iconsByColor: Partial<Record<DynamicStringEnumKeysOf<FlowbiteColors>, FC<S
   success: LuCircleCheck,
 };
 
-type BaseAlertProps = AlertProps & {
+export type BaseAlertProps = AlertProps & {
   withDefaultIcon?: boolean;
 };
 
@@ -23,7 +23,7 @@ const BaseAlert: FC<BaseAlertProps> = (props) => {
       color={color}
       theme={{
         base: 'text-sm',
-        wrapper: '!text-base font-bold',
+        wrapper: '!text-base font-bold items-start',
         closeButton: {
           base: 'cursor-pointer self-baseline',
         },
@@ -31,7 +31,7 @@ const BaseAlert: FC<BaseAlertProps> = (props) => {
       icon={icon ?? defaultIcon}
       {...otherProps}
     >
-      <div className="flex gap-4">
+      <div className="-mt-0.5">
         {children}
       </div>
     </Alert>

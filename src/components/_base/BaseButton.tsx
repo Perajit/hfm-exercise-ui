@@ -1,23 +1,30 @@
 import { Button, ButtonProps } from 'flowbite-react';
 import { forwardRef } from 'react';
 
-const BaseButton = forwardRef<HTMLButtonElement, ButtonProps>((props, buttonRef) => {
-  const { className, ...otherProps } = props;
+export type BaseButtonProps = ButtonProps;
+
+const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>((props, buttonRef) => {
+  const { size, className, ...otherProps } = props;
 
   return (
     <Button
       ref={buttonRef}
       theme={{
+        base: 'rounded-sm focus:!ring-1 overflow-visible',
         color: {
           green: '!bg-[#179149] hover:!bg-[#097134]',
         },
         size: {
-          xs: 'h-[29px] px-2',
-          sm: 'h-[35px] px-6 text-sm lg:!text-base',
-          md: 'h-[54px] text-lg',
+          base: '!rounded-0',
+          xs: 'h-[24px] px-1 text-xs',
+          sm: 'h-[29px] px-2 text-xs lg:!text-sm',
+          md: 'h-[35px] px-6 text-sm lg:!text-md',
+          lg: 'h-[54px] px-10 text-md lg:!text-lg !rounded-smd',
+          xl: 'h-[63px] px-14 text-lg lg:!text-xl !rounded-smd',
         },
       }}
-      className={`max-w-full !rounded-md focus:!ring-1 ${className}`}
+      size={size || 'md'}
+      className={className}
       {...otherProps}
     />
   );

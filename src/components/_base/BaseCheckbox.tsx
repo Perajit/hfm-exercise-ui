@@ -9,19 +9,19 @@ export type BaseCheckboxProps = CheckboxProps & {
 const BaseCheckbox = forwardRef<HTMLInputElement, BaseCheckboxProps>((props, ref) => {
   const { id, label, errorMessage, className = '', ...otherProps } = props;
   const baseClassName = 'shrink-0 !bg-transparent checked:!bg-current !border-neutral-400 rounded-xs';
-  const classNameForError = errorMessage ? '!border-red-400 focus:!ring-1 focus:!ring-red-500' : '';
+  const classNameForError = '!bg-red-100 !border-red-400 focus:!ring-1 focus:!ring-red-500';
 
   return (
     <div className={className}>
-      <div className="flex gap-2">
+      <div className="flex item-center gap-2">
         <Checkbox
           ref={ref}
           id={id}
-          className={`${baseClassName} ${classNameForError}`}
+          className={`${baseClassName} ${errorMessage ? classNameForError : ''}`}
           {...otherProps}
         />
         {label ? (
-          <Label htmlFor={id} className="cursor-pointer text-xs text-muted">
+          <Label htmlFor={id} className="cursor-pointer -mt-0.5">
             {label}
           </Label>
         ) : null}

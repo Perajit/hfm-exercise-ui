@@ -1,6 +1,6 @@
-import { SelectionOption } from '@/components/_base/BaseDropdown';
+import { BaseDropdownOption } from '@/components/_base/BaseDropdown';
 
-export const experienceSelectionOptions: SelectionOption[] = [
+export const experienceSelectionOptions: BaseDropdownOption[] = [
   { value: 'EXP_01', label: 'Experience 1' },
   { value: 'EXP_02', label: 'Experience 2' },
   { value: 'EXP_03', label: 'Experience 3' },

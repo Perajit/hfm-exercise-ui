@@ -1,15 +1,16 @@
 import { TextInput, TextInputProps } from 'flowbite-react';
 import { forwardRef } from 'react';
 
-export type BaseTextInputProps = TextInputProps & {
+export type BaseTextInputProps = Omit<TextInputProps, 'sizing'> & {
+  size?: TextInputProps['sizing'];
   errorMessage?: string;
 };
 
 const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((props, ref) => {
-  const { errorMessage, className = '', ...otherProps } = props;
-  const baseClassName = '!bg-transparent !border-neutral-400 h-[42px] !text-base !rounded-md';
+  const { color, size, errorMessage, className = '', ...otherProps } = props;
+  const baseClassName = '!bg-white !border-neutral-400';
   const classNameForPlaceholder = 'placeholder:text-neutral-400';
-  const classNameForError = errorMessage ? '!border-red-400 focus:!ring-1 focus:!ring-red-500' : '';
+  const classNameForError = '!bg-red-100 !border-red-400 focus:!ring-red-500';
 
   return (
     <div className={className}>
@@ -18,14 +19,25 @@ const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((props, r
         theme={{
           field: {
             input: {
-              base: `${baseClassName} ${classNameForPlaceholder} ${classNameForError}`,
+              base: `${baseClassName} ${classNameForPlaceholder}`,
+              colors: {
+                failure: classNameForError,
+              },
+              sizes: {
+                sm: '!rounded-sm',
+                md: 'h-[42px] !text-base !rounded-md',
+              },
             },
           },
         }}
+        sizing={size}
+        color={errorMessage ? 'failure' : color}
         {...otherProps}
       />
       {errorMessage ? (
-        <div className="text-red-400 text-xs mt-1">{errorMessage}</div>
+        <div className="text-red-400 text-xs mt-1">
+          {errorMessage}
+        </div>
       ) : null}
     </div>
   );

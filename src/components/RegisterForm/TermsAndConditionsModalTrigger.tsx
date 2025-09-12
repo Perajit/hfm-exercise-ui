@@ -11,7 +11,7 @@ export type TermsAndConditionsModalTriggerProps = {
 const TermsAndConditionsModalTrigger: FC<TermsAndConditionsModalTriggerProps> = (props) => {
   const { renderTrigger, ...otherProps } = props;
 
-  const renderHeader: BaseModalTriggerProps['renderModalHeader'] = useCallback(() => (
+  const renderHeader: NonNullable<BaseModalTriggerProps['renderModalHeader']> = useCallback(() => (
     <>Terms and Conditions</>
   ), []);
 
@@ -66,7 +66,7 @@ const TermsAndConditionsModalTrigger: FC<TermsAndConditionsModalTriggerProps> = 
     </div>
   ), []);
 
-  const renderFooter: BaseModalTriggerProps['renderModalFooter'] = useCallback(({ closeModal }) => (
+  const renderFooter: NonNullable<BaseModalTriggerProps['renderModalFooter']> = useCallback(({ closeModal }) => (
     <BaseButton onClick={closeModal}>
       Close
     </BaseButton>
@@ -84,6 +84,7 @@ const TermsAndConditionsModalTrigger: FC<TermsAndConditionsModalTriggerProps> = 
       renderModalHeader={renderHeader}
       renderModalBody={renderBody}
       renderModalFooter={renderFooter}
+      modalDismissible
       {...otherProps}
     />
   );

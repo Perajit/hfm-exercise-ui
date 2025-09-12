@@ -2,26 +2,25 @@ import { ChevronDownIcon, Dropdown, DropdownItem, DropdownProps } from 'flowbite
 import { forwardRef, useMemo, useState } from 'react';
 import BaseButton from './BaseButton';
 
-export type SelectionOption = {
+export type BaseDropdownOption = {
   value: string;
   label: string;
 };
 
 export type BaseDropdownProps = Omit<DropdownProps, 'onChange'> & {
-  options: SelectionOption[];
+  options: BaseDropdownOption[];
   placeholder?: string;
   errorMessage?: string;
   onChange?: (value: string) => void;
 };
 
 const BaseDropdown = forwardRef<HTMLButtonElement, BaseDropdownProps>((props, ref) => {
-  const { options, placeholder, errorMessage, className = '', onChange, ...otherProps } = props;
+  const { id, options, placeholder, errorMessage, className = '', onChange, ...otherProps } = props;
   const [value, setValue] = useState('');
-  const baseClassName = 'w-full justify-between h-[42px] px-2.5 !text-base '
-    + 'bg-transparent hover:!bg-transparent text-neutral-900 '
-    + 'border border-neutral-400 ';
-  const classNameForPlaceholder = !value ? 'text-neutral-400' : '';
-  const classNameForError = errorMessage ? '!border-red-400 focus:!ring-1 focus:!ring-red-500' : '';
+  const baseClassName = 'w-full justify-between h-[42px] px-2.5 !text-base !rounded-md '
+    + 'bg-white text-neutral-900 border border-neutral-400 hover:!bg-white focus:ring-primary-500';
+  const classNameForPlaceholder = 'text-neutral-400';
+  const classNameForError = '!bg-red-100 !border-red-400 hover:!bg-red-100 focus:!ring-1 focus:!ring-red-500';
   const displayedText = useMemo(() => {
     const selectedOption = options.find(option => option.value === value);
     return selectedOption? selectedOption.label : placeholder;
@@ -33,10 +32,15 @@ const BaseDropdown = forwardRef<HTMLButtonElement, BaseDropdownProps>((props, re
         ref={ref}
         renderTrigger={() => (
           <BaseButton
+            id={id}
             data-testid={props['data-testid']}
-            className={`${baseClassName} ${classNameForError}`}
+            className={`${baseClassName} ${errorMessage ? classNameForError : ''}`}
           >
-            <span className={classNameForPlaceholder}>{displayedText}</span>
+            {displayedText? (
+              <span className={`mr-2 ${!value ? classNameForPlaceholder : ''}`}>
+                {displayedText}
+              </span>
+            ) : null}
             <ChevronDownIcon width={24} height={24} className="text-neutral-400 -mx-1" />
           </BaseButton>
         )}
@@ -60,7 +64,9 @@ const BaseDropdown = forwardRef<HTMLButtonElement, BaseDropdownProps>((props, re
         ))}
       </Dropdown>
       {errorMessage ? (
-        <div className="text-red-400 text-xs mt-1">{errorMessage}</div>
+        <div className="text-red-400 text-xs mt-1">
+          {errorMessage}
+        </div>
       ) : null}
     </div>
   );
