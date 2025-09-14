@@ -20,7 +20,7 @@ const HeroSection: FC<RegisterSectionProps> = (props) => {
     <BaseSection
       data-testid="hero-section"
       title={title}
-      className={`bg-no-repeat bg-cover bg-center bg-[url(/images/hero-background.jpg)] md:!py-12 lg:!py-20 ${className}`}
+      className={`bg-no-repeat bg-cover bg-center bg-[url(/images/hero-background.webp)] md:!py-12 lg:!py-20 ${className}`}
       {...otherProps}
     >
       <BaseCard className="max-w-[730px] mx-auto p-10">
