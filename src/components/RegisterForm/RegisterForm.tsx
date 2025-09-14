@@ -259,7 +259,7 @@ const RegisterForm: FC<RegisterFormProps> = (props) => {
           type="submit"
           color="green"
           size="lg"
-          className="w-[307px] mx-auto !rounded-smd gap-4"
+          className="w-[307px] max-w-full mx-auto !rounded-smd gap-4"
           disabled={isPending}
         >
           {isPending ? (
