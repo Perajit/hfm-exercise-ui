@@ -3,11 +3,12 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import flowbiteReact from 'flowbite-react/plugin/vite';
 import path from 'path';
+import { VitePWA } from 'vite-plugin-pwa';
 import { defineConfig } from 'vitest/config';
 
 // https://vite.dev/config/
-import { fileURLToPath } from 'node:url';
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
+import { fileURLToPath } from 'node:url';
 const dirname =
   typeof __dirname !== 'undefined'
     ? __dirname
@@ -15,7 +16,19 @@ const dirname =
 
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
-  plugins: [react(), tailwindcss(), flowbiteReact()],
+  plugins: [
+    react(),
+    tailwindcss(),
+    flowbiteReact(),
+    VitePWA({
+      strategies: 'injectManifest',
+      srcDir: 'src',
+      filename: 'service-worker.js',
+      injectManifest: {
+        globPatterns: ['**/*.{js,css,html,svg,png,webp}'],
+      },
+    }),
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
@@ -27,9 +40,6 @@ export default defineConfig({
     setupFiles: './test/setup.ts',
     silent: true,
     dangerouslyIgnoreUnhandledErrors: true,
-    // onConsoleLog(_, type) {
-    //   return type !== 'stderr';
-    // },
     projects: [
       {
         extends: true,

@@ -22,6 +22,16 @@ const router = createBrowserRouter([
   }
 ]);
 
+// For service worker
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/service-worker.js')
+      .then(reg => console.log('SW registered', reg))
+      .catch(err => console.error('SW registration failed', err));
+  });
+}
+
+// For mock
 if (import.meta.env.MODE === 'mock') {
   worker.start();
 }
