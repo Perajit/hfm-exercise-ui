@@ -8,7 +8,7 @@ export type BaseCheckboxProps = CheckboxProps & {
 
 const BaseCheckbox = forwardRef<HTMLInputElement, BaseCheckboxProps>((props, ref) => {
   const { id, label, errorMessage, className = '', ...otherProps } = props;
-  const baseClassName = 'shrink-0 !bg-transparent checked:!bg-current !border-neutral-400 rounded-xs';
+  const baseClassName = 'shrink-0 !bg-white checked:!bg-current !border-neutral-400 rounded-xs';
   const classNameForError = '!bg-red-100 !border-red-400 focus:!ring-1 focus:!ring-red-500';
 
   return (
