@@ -91,7 +91,7 @@ export const AppHeader: FC<AppHeaderProps> = (props) => {
           </NavbarBrand>
           <div className="grow flex md:hidden justify-end items-center gap-4">
             <LangMenu className="md:hidden" />
-            <NavbarToggle className="cursor-pointer hover:!bg-transparent" />
+            <NavbarToggle className="cursor-pointer hover:!bg-transparent -mr-3" />
           </div>
           <NavbarCollapse className="grow self-end md:justify-end md:justify-between md:gap-0 mt-2 md:mt-6">
             <div className="grow flex flex-col md:flex-row gap-4 lg:gap-10">
