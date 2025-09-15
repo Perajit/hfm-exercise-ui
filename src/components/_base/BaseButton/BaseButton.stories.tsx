@@ -89,7 +89,7 @@ type Story = StoryObj<StoryArgs>;
 
 export const Default: Story = {
   args: {
-    children: '<span>Click <span className="text-red-500"> me</span></span>',
+    children: '<span className="uppercase">Click me</span>',
     color: 'default',
     className: '',
   },

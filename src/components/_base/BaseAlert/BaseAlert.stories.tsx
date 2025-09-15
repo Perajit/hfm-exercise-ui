@@ -81,7 +81,7 @@ type Story = StoryObj<StoryArgs>;
 export const Default: Story = {
   args: {
     children: '<>Title line 1<br />Title line 2</>',
-    additionalContent: 'This is a <span className="text-red-500">content</span>.',
+    additionalContent: '<span className="text-red-500">This is a content</span>.',
     withDefaultIcon: false,
   },
 };

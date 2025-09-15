@@ -58,6 +58,6 @@ type Story = StoryObj<StoryArgs>;
 
 export const Default: Story = {
   args: {
-    label: 'This is an <span class="text-red-500">option</span>.',
+    label: '<span class="text-red-500">This is an option</span>.',
   },
 };

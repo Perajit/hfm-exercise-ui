@@ -58,7 +58,7 @@ type Story = StoryObj<StoryArgs>;
 export const Default: Story = {
   args: {
     title: '<span className="uppercase">Section Title</span>',
-    children: 'This is a section <span className="text-red-500">content</span>.',
+    children: '<span className="text-red-500">This is a section content</span>.',
     className: 'bg-gray-200',
   },
 };

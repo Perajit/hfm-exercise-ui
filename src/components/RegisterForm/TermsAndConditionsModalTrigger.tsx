@@ -1,89 +1,85 @@
 import BaseButton from '@/components/_base/BaseButton/BaseButton';
-import BaseModalTrigger, { BaseModalTriggerProps } from '@/components/_base/BaseModalTrigger/BaseModalTrigger';
-import { FC, useCallback } from 'react';
+import BaseModal, { BaseModalProps } from '@/components/_base/BaseModal/BaseModal';
+import { FC } from 'react';
 
 export type TermsAndConditionsModalTriggerProps = {
-  renderTrigger?: BaseModalTriggerProps['renderTrigger'];
-  onOpenModal?: BaseModalTriggerProps['onOpenModal'];
-  onCloseModal?: BaseModalTriggerProps['onCloseModal'];
+  renderTrigger?: BaseModalProps['renderTrigger'];
+  onOpenModal?: BaseModalProps['onOpenModal'];
+  onCloseModal?: BaseModalProps['onCloseModal'];
 };
 
 const TermsAndConditionsModalTrigger: FC<TermsAndConditionsModalTriggerProps> = (props) => {
   const { renderTrigger, ...otherProps } = props;
 
-  const renderHeader: NonNullable<BaseModalTriggerProps['renderModalHeader']> = useCallback(() => (
-    <>Terms and Conditions</>
-  ), []);
+  const title = 'Terms and Conditions';
 
-  const renderBody: BaseModalTriggerProps['renderModalBody'] = useCallback(() => (
-    <div className="space-y-6">
-      <p>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-      </p>
-    </div>
-  ), []);
+  const defaultRenderTrigger: BaseModalProps['renderTrigger'] = ({ openModal }) => (
+    <a href="#" className="!text-red-700 hover:!text-red-500" onClick={openModal}>
+      {title}
+    </a>
+  );
 
-  const renderFooter: NonNullable<BaseModalTriggerProps['renderModalFooter']> = useCallback(({ closeModal }) => (
+  const renderFooterContent: NonNullable<BaseModalProps['renderFooterContent']> = ({ closeModal }) => (
     <BaseButton onClick={closeModal}>
       Close
     </BaseButton>
-  ), []);
-
-  const defaultRenderTrigger: BaseModalTriggerProps['renderTrigger'] = useCallback(({ openModal }) => (
-    <a href="#" className="!text-red-700 hover:!text-red-500" onClick={openModal}>
-      Terms and Conditions
-    </a>
-  ), []);
+  );
 
   return (
-    <BaseModalTrigger
+    <BaseModal
       renderTrigger={renderTrigger ?? defaultRenderTrigger}
-      renderModalHeader={renderHeader}
-      renderModalBody={renderBody}
-      renderModalFooter={renderFooter}
+      headerContent={title}
+      bodyContent={
+        <div className="space-y-6">
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+          </p>
+        </div>
+      }
+      renderFooterContent={renderFooterContent}
       modalDismissible
       {...otherProps}
     />
