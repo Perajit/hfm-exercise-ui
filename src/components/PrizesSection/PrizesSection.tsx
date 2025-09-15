@@ -40,7 +40,7 @@ const PrizesSection: FC<PrizesSectionProps> = (props) => {
             role="listitem"
             className="flex flex-col items-center gap-4 p-12 text-center text-black"
           >
-            <img src={medalImgSrcs[index]} className="w-[100px]'" />
+            <img src={medalImgSrcs[index]} alt={`#${index + 1}`} className="w-[100px]'" />
             <div className="text-heading-1 font-bold">
               ${prize.amount}
             </div>

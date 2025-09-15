@@ -31,13 +31,13 @@ const IntroSection: FC<IntroSectionProps> = (props) => {
       <div className={gridClassName}>
         <div className={colClassName}>
           <div>
-            <img src={intro1ImgSrc} className={iconClassName} />
+            <img src={intro1ImgSrc} alt="Register" className={iconClassName} />
             <span className={textClassName}>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit
             </span>
           </div>
           <div>
-            <img src={intro2ImgSrc} className={iconClassName} />
+            <img src={intro2ImgSrc} alt="Buy" className={iconClassName} />
             <span className={textClassName}>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit
             </span>
@@ -45,20 +45,20 @@ const IntroSection: FC<IntroSectionProps> = (props) => {
         </div>
         <div className={`${colClassName} lg:order-2`}>
           <div>
-            <img src={intro3ImgSrc} className={iconClassName} />
+            <img src={intro3ImgSrc} alt="Monitor" className={iconClassName} />
             <span className={textClassName}>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit
             </span>
           </div>
           <div>
-            <img src={intro1ImgSrc} className={iconClassName} />
+            <img src={intro1ImgSrc} alt="Sell" className={iconClassName} />
             <span className={textClassName}>
               Lorem ipsum dolor sit amet, consectetuer adipiscing elit
             </span>
           </div>
         </div>
         <div className={appClassName}>
-          <img src={appImgSrc} />
+          <img src={appImgSrc} alt="App" />
         </div>
       </div>
     </BaseSection>

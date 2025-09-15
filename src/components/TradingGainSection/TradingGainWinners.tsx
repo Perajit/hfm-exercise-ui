@@ -35,7 +35,7 @@ const MonthyTradingGainWinners: FC<MonthyTradingGainWinnersProps> = (props) => {
             key={tradingGain.id}
             className="flex flex-col md:flex-row items-center gap-6 p-8 overflow-hidden relative uppercase text-lg"
           >
-            <img src={cardConfig.iconSrc} alt="" className="w-[100px]" />
+            <img src={cardConfig.iconSrc} alt="Trophy" className="w-[100px]" />
             <div>
               <h3 className="bg-gradient bg-clip-text text-transparent font-bold">
                 {tradingGain.ofMonth}&nbsp;
