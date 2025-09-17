@@ -6,7 +6,7 @@ import { screen } from '@testing-library/react';
 import userEvent, { UserEvent } from '@testing-library/user-event';
 import { beforeEach, describe, expect, it } from 'vitest';
 import RegisterForm from '../RegisterForm';
-import { getConditionsAcceptedChk, getCountryCodeDropdown, getEmailInput, getExperienceDropdown, getFirstNameInput, getLastNameInput, getPhoneCodeInput, getPhoneNumberInput, getSubmitButton, selectDropdown, verifyDropdownListItems } from './test-helper';
+import { getConditionsAcceptedChk, getCountryCodeSelect, getEmailInput, getExperienceSelect, getFirstNameInput, getLastNameInput, getPhoneCodeInput, getPhoneNumberInput, getSubmitButton, selectDropdown, verifyDropdownListItems } from './test-helper';
 
 describe('RegisterForm', () => {
   let user: UserEvent;
@@ -32,7 +32,7 @@ describe('RegisterForm', () => {
     expect(lastNameInput.disabled).toBe(false);
 
     // Form: country
-    const countryCodeDropdown = getCountryCodeDropdown();
+    const countryCodeDropdown = getCountryCodeSelect();
     expect(countryCodeDropdown.textContent).toEqual('Country');
     expect(countryCodeDropdown.disabled).toBe(false);
 
@@ -52,7 +52,7 @@ describe('RegisterForm', () => {
     expect(emailInput.disabled).toBe(false);
 
     // Form: experience
-    const experienceDropdown = getExperienceDropdown();
+    const experienceDropdown = getExperienceSelect();
     expect(experienceDropdown.textContent).toEqual('Experience');
     expect(experienceDropdown.disabled).toBe(false);
 
@@ -71,14 +71,14 @@ describe('RegisterForm', () => {
     renderWithWrapper(<RegisterForm title="test-title" />);
 
     const expectedDropdownItemLabels = countrySelectionOptions.map(option => option.label);
-    await verifyDropdownListItems(getCountryCodeDropdown(), expectedDropdownItemLabels, user);
+    await verifyDropdownListItems(getCountryCodeSelect(), expectedDropdownItemLabels, user);
   });
 
   it('should render experience dropdown items correctly', async () => {
     renderWithWrapper(<RegisterForm title="test-title" />);
 
     const expectedDropdownItemLabels = experienceSelectionOptions.map(option => option.label);
-    await verifyDropdownListItems(getExperienceDropdown(), expectedDropdownItemLabels, user);
+    await verifyDropdownListItems(getExperienceSelect(), expectedDropdownItemLabels, user);
   });
 
   describe('when selecting country', () => {
@@ -87,7 +87,7 @@ describe('RegisterForm', () => {
 
       const itemToSelect = countrySelectionOptions[1];
 
-      await selectDropdown(getCountryCodeDropdown(), itemToSelect.label, user);
+      await selectDropdown(getCountryCodeSelect(), itemToSelect.label, user);
 
       const expectedPhoneCode = countries[itemToSelect.value].phoneCode;
       expect(getPhoneCodeInput().value).toEqual(`+${expectedPhoneCode}`);

@@ -1,4 +1,4 @@
-import { TradingGain } from '@/types/trading.model';
+import { TradingGain } from '@/types/trading.type';
 import { FC } from 'react';
 
 type TradingGainTableProps = {

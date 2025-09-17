@@ -6,7 +6,7 @@ import { screen } from '@testing-library/react';
 import userEvent, { UserEvent } from '@testing-library/user-event';
 import { beforeEach, describe, expect, it } from 'vitest';
 import RegisterForm from '../RegisterForm';
-import { fillTextInput, getCountryCodeDropdown, getEmailInput, getExperienceDropdown, getFirstNameInput, getLastNameInput, getPhoneNumberInput, getSubmitButton, selectDropdown } from './test-helper';
+import { fillTextInput, getCountryCodeSelect, getEmailInput, getExperienceSelect, getFirstNameInput, getLastNameInput, getPhoneNumberInput, getSubmitButton, selectDropdown } from './test-helper';
 
 describe('RegisterForm > Form Validation', () => {
   let user: UserEvent;
@@ -53,10 +53,10 @@ describe('RegisterForm > Form Validation', () => {
     // Update form
     await fillTextInput(getFirstNameInput(), 'a', user);
     await fillTextInput(getLastNameInput(), 'b', user);
-    await selectDropdown(getCountryCodeDropdown(), countrySelectionOptions[0].label, user);
+    await selectDropdown(getCountryCodeSelect(), countrySelectionOptions[0].label, user);
     await fillTextInput(getPhoneNumberInput(), '123456789', user);
     await fillTextInput(getEmailInput(), 'mail@mabc.xyz', user);
-    await selectDropdown(getExperienceDropdown(), experienceSelectionOptions[0].label, user);
+    await selectDropdown(getExperienceSelect(), experienceSelectionOptions[0].label, user);
 
     expect(screen.queryByText('First name is required.')).toBeFalsy();
     expect(screen.queryByText('Last name is required.')).toBeFalsy();

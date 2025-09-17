@@ -9,7 +9,7 @@ type StoryArgs = Omit<BaseModalProps, 'triggerContent' | 'headerContent' | 'foot
   headerContent: string;
   footerContent: string;
   bodyContent: string;
-}
+};
 
 const meta = {
   title: 'Components/Base/BaseModal',

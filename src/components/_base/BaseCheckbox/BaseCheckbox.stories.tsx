@@ -5,7 +5,7 @@ import BaseCheckbox, { BaseCheckboxProps } from './BaseCheckbox';
 
 type StoryArgs = Omit<BaseCheckboxProps, 'label'> & {
   label: string;
-}
+};
 
 const meta = {
   title: 'Components/Base/BaseCheckbox',

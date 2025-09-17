@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react-vite';
 import { fn } from 'storybook/test';
-import BaseDropdown from './BaseDropdown';
+import BaseSelect from './BaseSelect';
 
 const meta = {
-  title: 'Components/Base/BaseDropdown',
-  component: BaseDropdown,
+  title: 'Components/Base/BaseSelect',
+  component: BaseSelect,
   parameters: {
     layout: 'centered',
   },
@@ -44,7 +44,7 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof BaseDropdown>;
+} satisfies Meta<typeof BaseSelect>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

@@ -1,6 +1,6 @@
+import BaseButton, { BaseButtonProps } from '@/components/_base/BaseButton/BaseButton';
 import { Modal, ModalBody, ModalFooter, ModalHeader } from 'flowbite-react';
 import { FC, ReactNode, useState } from 'react';
-import BaseButton, { BaseButtonProps } from '../BaseButton/BaseButton';
 
 export type BaseModalTriggerContext = {
   openModal: () => void;

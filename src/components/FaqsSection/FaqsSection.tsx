@@ -1,5 +1,5 @@
 import BaseSection from '@/components/_base/BaseSection/BaseSection';
-import { Faq } from '@/types/faq.model';
+import { Faq } from '@/types/faq.type';
 import { Accordion, AccordionContent, AccordionPanel, AccordionTitle } from 'flowbite-react';
 import { FC, HTMLProps } from 'react';
 

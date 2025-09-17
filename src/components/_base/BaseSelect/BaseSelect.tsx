@@ -2,19 +2,19 @@ import BaseButton from '@/components/_base/BaseButton/BaseButton';
 import { ChevronDownIcon, Dropdown, DropdownItem, DropdownProps } from 'flowbite-react';
 import { forwardRef, useMemo, useState } from 'react';
 
-export type BaseDropdownOption = {
+export type BaseSelectOption = {
   value: string;
   label: string;
 };
 
-export type BaseDropdownProps = Omit<DropdownProps, 'onChange'> & {
-  options: BaseDropdownOption[];
+export type BaseSelectProps = Omit<DropdownProps, 'onChange'> & {
+  options: BaseSelectOption[];
   placeholder?: string;
   errorMessage?: string;
   onChange?: (value: string) => void;
 };
 
-const BaseDropdown = forwardRef<HTMLButtonElement, BaseDropdownProps>((props, ref) => {
+const BaseSelect = forwardRef<HTMLButtonElement, BaseSelectProps>((props, ref) => {
   const { id, options, placeholder, errorMessage, className = '', onChange, ...otherProps } = props;
   const [value, setValue] = useState('');
   const baseClassName = 'w-full justify-between h-[42px] px-2.5 !text-base !rounded-md '
@@ -30,6 +30,10 @@ const BaseDropdown = forwardRef<HTMLButtonElement, BaseDropdownProps>((props, re
     <div className={className}>
       <Dropdown
         ref={ref}
+        theme={{
+          content: '!text-red-500',
+          inlineWrapper: 'text-red-500',
+        }}
         renderTrigger={() => (
           <BaseButton
             id={id}
@@ -44,16 +48,11 @@ const BaseDropdown = forwardRef<HTMLButtonElement, BaseDropdownProps>((props, re
             <ChevronDownIcon width={24} height={24} className="text-neutral-400 -mx-1" />
           </BaseButton>
         )}
-        theme={{
-          content: '!text-red-500',
-          inlineWrapper: 'text-red-500',
-        }}
         {...otherProps}
       >
         {options.map((option) => (
           <DropdownItem
             key={option.value}
-            value={option.value}
             onClick={() => {
               setValue(option.value);
               onChange?.(option.value);
@@ -72,6 +71,6 @@ const BaseDropdown = forwardRef<HTMLButtonElement, BaseDropdownProps>((props, re
   );
 });
 
-BaseDropdown.displayName = 'BaseDropdown';
+BaseSelect.displayName = 'BaseDropdown';
 
-export default BaseDropdown;
+export default BaseSelect;

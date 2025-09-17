@@ -1,4 +1,4 @@
-import { BaseDropdownOption } from '@/components/_base/BaseDropdown/BaseDropdown';
+import { BaseSelectOption } from '@/components/_base/BaseSelect/BaseSelect';
 
 type Country = {
   name: string;
@@ -13,7 +13,7 @@ export const countries: Record<string, Country> = {
   USA: { name: 'United States',  phoneCode: '1' },
 };
 
-export const countrySelectionOptions: BaseDropdownOption[] = Object.entries(countries).map((entry) => ({
+export const countrySelectionOptions: BaseSelectOption[] = Object.entries(countries).map((entry) => ({
   value: entry[0],
   label: entry[1].name,
 }));

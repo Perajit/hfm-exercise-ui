@@ -4,7 +4,7 @@ import BaseCard, { BaseCardProps } from './BaseCard';
 
 type StoryArgs = Omit<BaseCardProps, 'children'> & {
   children: string;
-}
+};
 
 const meta = {
   title: 'Components/Base/BaseCard',

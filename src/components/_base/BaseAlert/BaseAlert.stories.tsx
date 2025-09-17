@@ -6,7 +6,7 @@ import BaseAlert, { BaseAlertProps } from './BaseAlert';
 type StoryArgs = Omit<BaseAlertProps, 'children' | 'additionalContent'> & {
   children: string;
   additionalContent: string;
-}
+};
 
 const meta = {
   title: 'Components/Base/BaseAlert',

@@ -1,3 +1,5 @@
+import { worker } from '@/mocks/browser.ts';
+import HomePage from '@/pages/HomePage.tsx';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { initThemeMode } from 'flowbite-react';
 import { StrictMode } from 'react';
@@ -6,8 +8,6 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { ThemeInit } from '../.flowbite-react/init.tsx';
 import App from './App.tsx';
 import './index.css';
-import { worker } from './mocks/browser.ts';
-import HomePage from './pages/HomePage.tsx';
 
 const router = createBrowserRouter([
   {

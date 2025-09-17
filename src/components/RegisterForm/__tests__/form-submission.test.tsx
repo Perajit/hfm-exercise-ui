@@ -9,7 +9,7 @@ import { http, HttpResponse } from 'msw';
 import { setupServer } from 'msw/node';
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it } from 'vitest';
 import RegisterForm from '../RegisterForm';
-import { fillTextInput, getConditionsAcceptedChk, getCountryCodeDropdown, getEmailInput, getExperienceDropdown, getFirstNameInput, getLastNameInput, getPhoneNumberInput, getSubmitButton, selectDropdown } from './test-helper';
+import { fillTextInput, getConditionsAcceptedChk, getCountryCodeSelect, getEmailInput, getExperienceSelect, getFirstNameInput, getLastNameInput, getPhoneNumberInput, getSubmitButton, selectDropdown } from './test-helper';
 
 describe('RegisterForm > Form Sumission', () => {
   const server = setupServer(...handlers);
@@ -28,10 +28,10 @@ describe('RegisterForm > Form Sumission', () => {
 
     await fillTextInput(getFirstNameInput(), 'a', user);
     await fillTextInput(getLastNameInput(), 'b', user);
-    await selectDropdown(getCountryCodeDropdown(), countrySelectionOptions[0].label, user);
+    await selectDropdown(getCountryCodeSelect(), countrySelectionOptions[0].label, user);
     await fillTextInput(getPhoneNumberInput(), '123456789', user);
     await fillTextInput(getEmailInput(), 'mail@mabc.xyz', user);
-    await selectDropdown(getExperienceDropdown(), experienceSelectionOptions[0].label, user);
+    await selectDropdown(getExperienceSelect(), experienceSelectionOptions[0].label, user);
     await user.click(getConditionsAcceptedChk());
     await user.click(getSubmitButton());
 
@@ -56,10 +56,10 @@ describe('RegisterForm > Form Sumission', () => {
 
     await fillTextInput(getFirstNameInput(), 'a', user);
     await fillTextInput(getLastNameInput(), 'b', user);
-    await selectDropdown(getCountryCodeDropdown(), countrySelectionOptions[0].label, user);
+    await selectDropdown(getCountryCodeSelect(), countrySelectionOptions[0].label, user);
     await fillTextInput(getPhoneNumberInput(), '123456789', user);
     await fillTextInput(getEmailInput(), 'mail@mabc.xyz', user);
-    await selectDropdown(getExperienceDropdown(), experienceSelectionOptions[0].label, user);
+    await selectDropdown(getExperienceSelect(), experienceSelectionOptions[0].label, user);
     await user.click(getConditionsAcceptedChk());
     await user.click(getSubmitButton());
 

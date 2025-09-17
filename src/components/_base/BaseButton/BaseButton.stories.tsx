@@ -5,7 +5,7 @@ import BaseButton, { BaseButtonProps } from './BaseButton';
 
 type StoryArgs = Omit<BaseButtonProps, 'children'> & {
   children: string;
-}
+};
 
 const meta = {
   title: 'Components/Base/BaseButton',
