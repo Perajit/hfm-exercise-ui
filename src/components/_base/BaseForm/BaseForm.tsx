@@ -25,7 +25,7 @@ const BaseForm = <V extends FieldValues>(props: BaseFormProps<V>): ReactElement 
     submitButtonProps,
     resetButtonText,
     resetButtonProps,
-    className,
+    className = '',
     defaultValues,
     submitHandler,
     submissionIsPending,
@@ -40,9 +40,11 @@ const BaseForm = <V extends FieldValues>(props: BaseFormProps<V>): ReactElement 
   return (
     <FormProvider {...useFormResult}>
       <form className={className} onSubmit={useFormResult.handleSubmit(submitHandler)}>
-        <h2 className="text-2xl text-center font-bold mb-8">
-          {title}
-        </h2>
+        {title ? (
+          <h2 className="text-2xl text-center font-bold mb-8">
+            {title}
+          </h2>
+        ) : null}
         {children}
         <div className="flex justify-center gap-4 mt-10">
           <BaseButton

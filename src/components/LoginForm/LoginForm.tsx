@@ -1,22 +1,21 @@
 import BaseAlert from '@/components/_base/BaseAlert/BaseAlert';
 import BaseForm, { BaseFormProps } from '@/components/_base/BaseForm/BaseForm';
-import { useUserRegister } from '@/hooks/useUserRegister';
-import { RegisterPayload } from '@/services/user/register.service';
+import { useAuthLogin } from '@/hooks/useAuthLogin';
+import { LoginResult } from '@/services/auth/login.service';
 import { FC } from 'react';
-import { SubmitHandler } from 'react-hook-form';
-import RegisterFormBody, { RegisterFormFieldValues } from './RegisterFormBody';
+import LoginFormBody, { LoginFormFieldValues } from './LoginFormBody';
 
-export type RegisterFormProps = {
-  title?: BaseFormProps<RegisterFormFieldValues>['title'];
+export type LoginFormProps = {
+  title?: BaseFormProps<LoginFormFieldValues>['title'];
   className?: string;
-  onSubmissionSuccess?: () => void;
+  onSubmissionSuccess?: (data: LoginResult) => void;
   onSubmissionError?: (error: Error) => void;
 };
 
-const RegisterForm: FC<RegisterFormProps> = (props) => {
+const LoginForm: FC<LoginFormProps> = (props) => {
   const { title, className = '', onSubmissionSuccess, onSubmissionError } = props;
 
-  const submitButtonText = 'JOIN NOW';
+  const submitButtonText = 'LOGIN';
 
   const {
     mutate,
@@ -26,29 +25,18 @@ const RegisterForm: FC<RegisterFormProps> = (props) => {
     setSuccessAlertShown,
     errorAlertShown,
     setErrorAlertShown,
-  } = useUserRegister({
+  } = useAuthLogin({
     onSuccess: onSubmissionSuccess,
     onError: onSubmissionError,
   });
 
-  const submitHandler: SubmitHandler<RegisterFormFieldValues> = async (data) => {
-    setSuccessAlertShown(false);
+  const submitHandler = (formValues: LoginFormFieldValues) => {
     setErrorAlertShown(false);
-
-    const payload: RegisterPayload = {
-      firstName: data.firstName,
-      lastName: data.lastName,
-      countryCode: data.countryCode,
-      phoneNumber: data.phoneNumber,
-      email: data.email,
-      experience: data.experience,
-    };
-
-    mutate(payload);
+    mutate(formValues);
   };
 
   return (
-    <BaseForm<RegisterFormFieldValues>
+    <BaseForm<LoginFormFieldValues>
       title={title}
       submitButtonText={submitButtonText}
       className={className}
@@ -72,17 +60,17 @@ const RegisterForm: FC<RegisterFormProps> = (props) => {
         <BaseAlert
           data-testid="error-alert"
           color="failure"
-          className="mb-6"
+          className="my-6"
           withDefaultIcon
           additionalContent={`Reason: ${(error as Error)?.message || 'Unknown error occurs.'}`}
           onDismiss={() => setErrorAlertShown(false)}
         >
-          Sorry, we're unable to proceed your registration.
+          Failed to login to your account.
         </BaseAlert>
       ) : null}
-      <RegisterFormBody />
+      <LoginFormBody />
     </BaseForm>
   );
 };
 
-export default RegisterForm;
+export default LoginForm;

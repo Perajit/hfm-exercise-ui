@@ -1,7 +1,8 @@
 import BaseButton from '@/components/_base/BaseButton/BaseButton';
 import { Navbar, NavbarBrand, NavbarCollapse, NavbarLink, NavbarTheme, NavbarToggle } from 'flowbite-react';
-import type { FC, HTMLProps } from 'react';
+import { type FC, type HTMLProps } from 'react';
 import LangMenu from './LangMenu';
+import UserControls from './UserControls';
 
 const loggImgSrc = '/images/logo.svg';
 const downloadAppImgSrc = '/images/download-app.svg';
@@ -9,7 +10,7 @@ const downloadAppImgSrc = '/images/download-app.svg';
 export type AppHeaderProps = Omit<HTMLProps<HTMLBaseElement>, 'title'>;
 
 export const AppHeader: FC<AppHeaderProps> = (props) => {
-  const { className, ...otherProps } = props;
+  const { className = '', ...otherProps } = props;
 
   const logoTextClassName = 'text-tiny hidden lg:block mb-3';
   const logoClassName = 'h-[40px] md:h-auto';
@@ -23,8 +24,6 @@ export const AppHeader: FC<AppHeaderProps> = (props) => {
   const downloadAppButtonClassName =
     '!border-neutral-600 !bg-transparent hover:!bg-white hover:text-neutral-700 gap-2 '
     + buttonClassName;
-  const loginButtonClassName = `!border-red-700 !bg-transparent hover:!bg-red-700 lg:!text-base ${buttonClassName}`;
-  const registerButtonClassName = `border-transparent lg:!text-base ${buttonClassName}`;
 
   const classNameForBaseFontSize = 'text-sm lg:!text-base';
   const classNameForSmFontSize = 'text-xs lg:!text-sm';
@@ -94,7 +93,7 @@ export const AppHeader: FC<AppHeaderProps> = (props) => {
             <NavbarToggle className="cursor-pointer hover:!bg-transparent -mr-3" />
           </div>
           <NavbarCollapse className="grow self-end md:justify-end md:justify-between md:gap-0 mt-2 md:mt-6">
-            <div className="grow flex flex-col md:flex-row gap-4 lg:gap-10">
+            <div className="grow flex flex-col md:flex-row gap-4 lg:gap-10 w-full md:w-auto">
               <NavbarLink href="#">
                 Markets
               </NavbarLink>
@@ -111,14 +110,7 @@ export const AppHeader: FC<AppHeaderProps> = (props) => {
                 Company
               </NavbarLink>
             </div>
-            <div className="flex gap-4 px-2 md:px-0 py-4 md:py-0 md:self-end">
-              <BaseButton size="md" className={loginButtonClassName}>
-                Login
-              </BaseButton>
-              <BaseButton size="md" color="green" className={registerButtonClassName}>
-                Register
-              </BaseButton>
-            </div>
+            <UserControls className="w-full md:w-auto mt-6 md:mt-0 border-t-1 border-t-dark-base md:border-t-0" />
           </NavbarCollapse>
         </div>
       </Navbar>
