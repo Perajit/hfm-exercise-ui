@@ -1,20 +1,28 @@
 This is an implementation for the Front-end Exercise of HF Markets.
 
 # Getting Started
+
 ## Install dependencies
 ```bash
 npm install
 ```
+
 ## Serve application
 ```bash
 npm run dev
 ```
 The application will run at http://localhost:5173
+
+To try login functionalities, use these users:
+  | username       | password  |
+  | -------------- | ----------|
+  | user1@mail.com | P@ssword1 |
+  | user2@mail.com | P@ssword2 |
+
 ## Run unit-testing
 ```bash
 npm run test
 ```
-
 # Technologies
 - **Build tool**: Vite
 - **Unit-testing**: Vitest (Jest is not supported by Vite)
@@ -22,11 +30,18 @@ npm run test
 - **API Request**: React Query, MSW (for mocking)
 
 # Scope and Assumptions
-- There is only 1 page with no links to other routes.
-- Only the logic in the registration form has been implemented.
+- Scope of implementation:
+  - User registration
+  - Authentication: login/logout
+- Pages:
+  - Home
+  - Registratin
+  - Login
+  - My Profile
 - Localization is NOT included.
-- Unit-testing is included.
+- Unit-testing is included only for RegisterForm.
 - Storybook is included.
+- Service worker is included.
 - Data such as dropdown options, list items, and table entries are declared as constants.
 - The meaning of “Experience” was unclear, so dummy values are used in the list.
 - Phone code is only displayed in UI but excluded from the request payload. (Better to leave let the server side lookup value from country code.)
@@ -38,6 +53,14 @@ npm run test
 
 # Functionalities
 - Fully responsive layout for all screen sizes.
+- Async handling:
+  - Disable submit button and show spinner while requet is pending.
+    To check this functionality, open developer console and set network throtting to "Slow 4G".
+  - Shows success feedback on the form when submission is successful.
+  - Shows error feedback on the form when submission fails.
+- Updates feedback when field values change.
+
+## User Registration
 - Displays Terms and Conditions modal when "Terms and Conditions" is clicked.
 - Displays Privacy Policy modal when "Privacy Policy" is clicked.
 - Field validations:
@@ -48,12 +71,11 @@ npm run test
   - **Email**: required, email pattern
   - **Experience**: required
   - **Accept Policy Privacy / Terms and Conditions**: required
-- Async handling:
-  - Disable submit button and show spinner while requet is pending.
-    To check this functionality, open developer console and set network throtting to "Slow 4G".
-  - Shows success feedback on the form when submission is successful.
-  - Shows error feedback on the form when submission fails.
-- Updates feedback when field values change.
+
+## User Login
+- Field validations:
+  - **Username**: required
+  - **Password**: required
 
 # Notes
 - React Routers is used here for future extension.
@@ -81,6 +103,8 @@ hfm-exercise-ui/
 │   │   ├── FaqsSection/
 │   │   ├── HeroSection/
 │   │   ├── IntroSection/
+│   │   ├── LoginForm/
+│   │   ├── MyProfile/
 │   │   ├── PrizesSection/
 │   │   ├── RegisterForm/
 │   │   │   └── __tests__/                                /* Folder for unit-testing files, including her */
@@ -97,7 +121,7 @@ hfm-exercise-ui/
 │   ├── lib/                                              /* Scripts related to 3rd party libraries */
 │   ├── mocks/                                            /* For MSW */
 │   ├── pages/
-│   ├── services/
+│   ├── services/                                         /* For API calls */
 │   ├── types/
 │   ├── App.tsx
 │   ├── fonts.css

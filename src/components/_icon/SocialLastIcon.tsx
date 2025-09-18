@@ -1,7 +1,7 @@
 import { FC, SVGProps } from 'react';
 
 const SocialLastIcon: FC<SVGProps<SVGSVGElement>> = (props) => {
-  const { width, height, color = 'currentColor', className, ...otherProps } = props;
+  const { width, height, color = 'currentColor', className = '', ...otherProps } = props;
 
   return (
     <svg

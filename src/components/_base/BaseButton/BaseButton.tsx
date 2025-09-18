@@ -4,7 +4,7 @@ import { forwardRef } from 'react';
 export type BaseButtonProps = ButtonProps;
 
 const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>((props, buttonRef) => {
-  const { size, className, ...otherProps } = props;
+  const { size, className = '', ...otherProps } = props;
 
   return (
     <Button

@@ -13,10 +13,6 @@ axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
     if (axios.isAxiosError(error) && error.response) {
-      if (error.response.status === 401 || error.response.status === 403) {
-        window.location.href = '/auth';
-      }
-
       // Expose server error info except server error 500
       if (error.response.status !== 500) {
         return Promise.reject(error.response.data);

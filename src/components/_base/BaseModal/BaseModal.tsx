@@ -35,7 +35,7 @@ const BaseModal: FC<BaseModalProps> = (props) => {
     footerContent,
     renderBodyContent,
     bodyContent,
-    className,
+    className = '',
     onOpenModal,
     onCloseModal,
   } = props;

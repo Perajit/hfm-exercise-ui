@@ -8,7 +8,7 @@ const goolgePlayImgSrc = '/images/googleplay.svg';
 export type AppFooterProps = Omit<HTMLProps<HTMLBaseElement>, 'title'>;
 
 export const AppFooter: FC<AppFooterProps> = (props) => {
-  const { className, ...otherProps } = props;
+  const { className = '', ...otherProps } = props;
 
   return (
     <footer
