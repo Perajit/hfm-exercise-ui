@@ -1,5 +1,5 @@
 import BaseTextInput from '@/components/_base/BaseTextInput/BaseTextInput';
-import { FC, memo } from 'react';
+import { ChangeEventHandler, FC, memo } from 'react';
 import { Controller, RegisterOptions, useFormContext } from 'react-hook-form';
 
 export type LoginFormFieldValues = {
@@ -23,8 +23,17 @@ const loginFormRules: LoginFormRules = {
 };
 
 const LoginFormBody: FC = memo(() => {
-  const { control, formState } = useFormContext<LoginFormFieldValues>();
+  const { control, formState, setValue, clearErrors } = useFormContext<LoginFormFieldValues>();
   const formErrors = formState.errors;
+
+  type InputChangeHandler = ChangeEventHandler<HTMLInputElement | HTMLSelectElement>;
+
+  const getInputChangeHandler = (key: LoginFormKeys): InputChangeHandler => {
+    return (e) => {
+      setValue(key, e.target.value);
+      clearErrors(key);
+    };
+  };
 
   return (
     <div className="flex flex-col gap-4">
@@ -44,7 +53,9 @@ const LoginFormBody: FC = memo(() => {
               placeholder="Your email address"
               className="w-full"
               errorMessage={formErrors.username?.message}
-              {...field}
+              value={field.value}
+              onBlur={field.onBlur}
+              onChange={getInputChangeHandler('username')}
             />
           )}
         />
@@ -65,7 +76,9 @@ const LoginFormBody: FC = memo(() => {
               placeholder="Your password"
               className="w-full"
               errorMessage={formErrors.password?.message}
-              {...field}
+              value={field.value}
+              onBlur={field.onBlur}
+              onChange={getInputChangeHandler('password')}
             />
           )}
         />

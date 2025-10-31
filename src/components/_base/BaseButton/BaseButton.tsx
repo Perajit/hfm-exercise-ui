@@ -1,14 +1,14 @@
 import { Button, ButtonProps } from 'flowbite-react';
-import { forwardRef } from 'react';
+import { FC } from 'react';
 
 export type BaseButtonProps = ButtonProps;
 
-const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>((props, buttonRef) => {
-  const { size, className = '', ...otherProps } = props;
+const BaseButton: FC<BaseButtonProps> = (props) => {
+  const { ref, size, className = '', ...otherProps } = props;
 
   return (
     <Button
-      ref={buttonRef}
+      ref={ref}
       theme={{
         base: 'rounded-sm focus:!ring-1 overflow-visible',
         color: {
@@ -28,8 +28,6 @@ const BaseButton = forwardRef<HTMLButtonElement, BaseButtonProps>((props, button
       {...otherProps}
     />
   );
-});
-
-BaseButton.displayName = 'BaseButton';
+};
 
 export default BaseButton;

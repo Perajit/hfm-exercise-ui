@@ -1,6 +1,6 @@
 import BaseButton from '@/components/_base/BaseButton/BaseButton';
 import { ChevronDownIcon, Dropdown, DropdownItem, DropdownProps } from 'flowbite-react';
-import { forwardRef, useMemo, useState } from 'react';
+import { FC, useMemo, useState } from 'react';
 
 export type BaseSelectOption = {
   value: string;
@@ -8,14 +8,15 @@ export type BaseSelectOption = {
 };
 
 export type BaseSelectProps = Omit<DropdownProps, 'onChange'> & {
+  ref?: HTMLButtonElement;
   options: BaseSelectOption[];
   placeholder?: string;
   errorMessage?: string;
   onChange?: (value: string) => void;
 };
 
-const BaseSelect = forwardRef<HTMLButtonElement, BaseSelectProps>((props, ref) => {
-  const { id, options, placeholder, errorMessage, className = '', onChange, ...otherProps } = props;
+const BaseSelect: FC<BaseSelectProps> = (props) => {
+  const { ref, id, options, placeholder, errorMessage, className = '', onChange, ...otherProps } = props;
   const [value, setValue] = useState('');
   const baseClassName = 'w-full justify-between h-[42px] px-2.5 !text-base !rounded-md '
     + 'bg-white text-neutral-900 border border-neutral-400 hover:!bg-white focus:ring-primary-500';
@@ -23,7 +24,7 @@ const BaseSelect = forwardRef<HTMLButtonElement, BaseSelectProps>((props, ref) =
   const classNameForError = '!bg-red-100 !border-red-400 hover:!bg-red-100 focus:!ring-1 focus:!ring-red-500';
   const displayedText = useMemo(() => {
     const selectedOption = options.find(option => option.value === value);
-    return selectedOption? selectedOption.label : placeholder;
+    return selectedOption ? selectedOption.label : placeholder;
   }, [options, value, placeholder]);
 
   return (
@@ -40,7 +41,7 @@ const BaseSelect = forwardRef<HTMLButtonElement, BaseSelectProps>((props, ref) =
             data-testid={props['data-testid']}
             className={`${baseClassName} ${errorMessage ? classNameForError : ''}`}
           >
-            {displayedText? (
+            {displayedText ? (
               <span className={`mr-2 ${!value ? classNameForPlaceholder : ''}`}>
                 {displayedText}
               </span>
@@ -69,8 +70,6 @@ const BaseSelect = forwardRef<HTMLButtonElement, BaseSelectProps>((props, ref) =
       ) : null}
     </div>
   );
-});
-
-BaseSelect.displayName = 'BaseDropdown';
+};
 
 export default BaseSelect;

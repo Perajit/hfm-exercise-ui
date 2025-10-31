@@ -1,13 +1,14 @@
 import { TextInput, TextInputProps } from 'flowbite-react';
-import { forwardRef } from 'react';
+import { FC, Ref } from 'react';
 
 export type BaseTextInputProps = Omit<TextInputProps, 'sizing'> & {
+  ref?: Ref<HTMLInputElement>;
   size?: TextInputProps['sizing'];
   errorMessage?: string;
 };
 
-const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((props, ref) => {
-  const { color, size, errorMessage, className = '', ...otherProps } = props;
+const BaseTextInput: FC<BaseTextInputProps> = (props) => {
+  const { ref, color, size, errorMessage, className = '', ...otherProps } = props;
   const baseClassName = '!bg-white !border-neutral-400';
   const classNameForPlaceholder = 'placeholder:text-neutral-400';
   const classNameForError = '!bg-red-100 !border-red-400 focus:!ring-red-500';
@@ -41,8 +42,6 @@ const BaseTextInput = forwardRef<HTMLInputElement, BaseTextInputProps>((props, r
       ) : null}
     </div>
   );
-});
-
-BaseTextInput.displayName = 'BaseTextInput';
+};
 
 export default BaseTextInput;

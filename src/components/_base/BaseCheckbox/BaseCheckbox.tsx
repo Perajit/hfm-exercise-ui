@@ -1,13 +1,14 @@
 import { Checkbox, CheckboxProps, Label } from 'flowbite-react';
-import { forwardRef, ReactNode } from 'react';
+import { FC, ReactNode, Ref } from 'react';
 
 export type BaseCheckboxProps = CheckboxProps & {
+  ref?: Ref<HTMLInputElement>;
   label?: ReactNode;
   errorMessage?: string;
 };
 
-const BaseCheckbox = forwardRef<HTMLInputElement, BaseCheckboxProps>((props, ref) => {
-  const { id, label, errorMessage, className = '', ...otherProps } = props;
+const BaseCheckbox: FC<BaseCheckboxProps> = (props) => {
+  const { ref, id, label, errorMessage, className = '', ...otherProps } = props;
   const baseClassName = 'shrink-0 !bg-white checked:!bg-current !border-neutral-400 rounded-xs';
   const classNameForError = '!bg-red-100 !border-red-400 focus:!ring-1 focus:!ring-red-500';
 
@@ -33,8 +34,6 @@ const BaseCheckbox = forwardRef<HTMLInputElement, BaseCheckboxProps>((props, ref
       ) : null}
     </div>
   );
-});
-
-BaseCheckbox.displayName = 'BaseCheckbox';
+};
 
 export default BaseCheckbox;
