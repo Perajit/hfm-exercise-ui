@@ -7,9 +7,9 @@ export type AuthContextType = {
   currentUser: UserProfile | null;
   setCurrentUser: (user: UserProfile | null) => void;
   isAuthenticated: boolean;
-}
+};
 
-const defaultAuthContext: AuthContextType = {
+export const defaultAuthContext: AuthContextType = {
   currentUser: null,
   setCurrentUser: () => { },
   isAuthenticated: false,
@@ -19,7 +19,9 @@ const AuthContext = createContext<AuthContextType>(defaultAuthContext);
 
 export const useAuthContext = () => useContext(AuthContext);
 
-export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
+type AuthProviderProps = PropsWithChildren & { value?: AuthContextType };
+
+export const AuthProvider: FC<AuthProviderProps> = ({ children, value }) => {
   const [currentUser, setCurrentUser] = useState<UserProfile | null>(null);
 
   // Auto fetch current user
@@ -29,11 +31,11 @@ export const AuthProvider: FC<PropsWithChildren> = ({ children }) => {
     setCurrentUser(data || null);
   }, [data]);
 
-  const contextValue = useMemo(() => ({
+  const contextValue = useMemo(() => (value ?? {
     currentUser,
     setCurrentUser,
     isAuthenticated: !!data,
-  }), [currentUser, data]);
+  }), [value, currentUser, data]);
 
   return isLoading ? (
     <div className="h-full flex justify-center items-center">
